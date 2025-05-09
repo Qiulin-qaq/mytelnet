@@ -1,0 +1,298 @@
+Trying 155.138.142.54: ... 
+Connected to 155.138.142.54.
+Escape character is ']'.
+Using gateway MAC: 00:50:56:fc:d2:7f
+Packet capture thread started...
+Sending SYN packet, connecting to 155.138.142.54:80
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: S Seq: 3387559713 Ack: 0 Len: 0 Total packet size: 54 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0x772f URG_ptr=0
+Successfully sent 54 bytes
+Waiting for connection establishment (timeout: 10000ms)...
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Still waiting for connection... 0 seconds elapsed
+Current connection state: SYN_SENT
+Captured packet: 60 bytes at time 1746769855.804099
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 60
+Entering parse function. data_length_: 60
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x66f7, Packet checksum: 0x66f7
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 44
+TCP packet: 80 -> 54893 Seq: 1675058284 Ack: 3387559714 Flags: SA Window: 64240 Data Offset: 6 Data Length: 0
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Received SYN+ACK, sending ACK
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: A Seq: 3387559714 Ack: 1675058285 Len: 0 Total packet size: 54 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0xb6db URG_ptr=0
+Successfully sent 54 bytes
+Captured packet: 60 bytes at time 1746769855.912671
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 60
+Entering parse function. data_length_: 60
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x66f6, Packet checksum: 0x66f6
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 44
+TCP packet: 80 -> 54893 Seq: 1675058284 Ack: 3387559714 Flags: SA Window: 64240 Data Offset: 6 Data Length: 0
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Captured packet: 60 bytes at time 1746769856.19333
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 60
+Entering parse function. data_length_: 60
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x66f5, Packet checksum: 0x66f5
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 44
+TCP packet: 80 -> 54893 Seq: 1675058284 Ack: 3387559714 Flags: SA Window: 64240 Data Offset: 6 Data Length: 0
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Captured packet: 60 bytes at time 1746769856.127536
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 60
+Entering parse function. data_length_: 60
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x66f4, Packet checksum: 0x66f4
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 44
+TCP packet: 80 -> 54893 Seq: 1675058284 Ack: 3387559714 Flags: SA Window: 64240 Data Offset: 6 Data Length: 0
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Connection established successfully!
+Sending data packet, length: 85 bytes
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: AP Seq: 3387559714 Ack: 1675058285 Len: 85 Total packet size: 139 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0xaa74 URG_ptr=0
+Successfully sent 139 bytes
+Captured packet: 60 bytes at time 1746769856.516257
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 60
+Entering parse function. data_length_: 60
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x66f7, Packet checksum: 0x66f7
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 40
+TCP packet: 80 -> 54893 Seq: 1675058285 Ack: 3387559799 Flags: A Window: 64240 Data Offset: 5 Data Length: 0
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Captured packet: 528 bytes at time 1746769856.806397
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 528
+Entering parse function. data_length_: 528
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x651c, Packet checksum: 0x651c
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 514
+TCP packet: 80 -> 54893 Seq: 1675058285 Ack: 3387559799 Flags: AP Window: 64240 Data Offset: 5 Data Length: 474
+Payload (474 bytes):
+0000: 48 54 54 50 2f 31 2e 31  20 32 30 30 20 4f 4b 0d  |HTTP/1.1 200 OK.|
+0010: 0a 44 61 74 65 3a 20 46  72 69 2c 20 30 39 20 4d  |.Date: Fri, 09 M|
+0020: 61 79 20 32 30 32 35 20  30 35 3a 35 30 3a 35 36  |ay 2025 05:50:56|
+0030: 20 47 4d 54 0d 0a 53 65  72 76 65 72 3a 20 41 70  | GMT..Server: Ap|
+0040: 61 63 68 65 2f 32 2e 34  2e 36 20 28 43 65 6e 74  |ache/2.4.6 (Cent|
+0050: 4f 53 29 0d 0a 4c 61 73  74 2d 4d 6f 64 69 66 69  |OS)..Last-Modifi|
+0060: 65 64 3a 20 54 75 65 2c  20 31 34 20 4d 61 72 20  |ed: Tue, 14 Mar |
+0070: 32 30 32 33 20 30 36 3a  31 31 3a 33 35 20 47 4d  |2023 06:11:35 GM|
+0080: 54 0d 0a 45 54 61 67 3a  20 22 64 35 2d 35 66 36  |T..ETag: "d5-5f6|
+0090: 64 36 31 39 38 34 66 62  65 65 22 0d 0a 41 63 63  |d61984fbee"..Acc|
+00a0: 65 70 74 2d 52 61 6e 67  65 73 3a 20 62 79 74 65  |ept-Ranges: byte|
+00b0: 73 0d 0a 43 6f 6e 74 65  6e 74 2d 4c 65 6e 67 74  |s..Content-Lengt|
+00c0: 68 3a 20 32 31 33 0d 0a  43 6f 6e 6e 65 63 74 69  |h: 213..Connecti|
+00d0: 6f 6e 3a 20 63 6c 6f 73  65 0d 0a 43 6f 6e 74 65  |on: close..Conte|
+00e0: 6e 74 2d 54 79 70 65 3a  20 74 65 78 74 2f 68 74  |nt-Type: text/ht|
+00f0: 6d 6c 3b 20 63 68 61 72  73 65 74 3d 55 54 46 2d  |ml; charset=UTF-|
+0100: 38 0d 0a 0d 0a 54 68 69  73 20 69 73 20 74 68 65  |8....This is the|
+0110: 20 64 65 66 61 75 6c 74  20 70 61 67 65 21 0a 3c  | default page!.<|
+0120: 61 20 68 72 65 66 3d 22  68 74 74 70 3a 2f 2f 31  |a href="http://1|
+0130: 35 35 2e 31 33 38 2e 31  34 32 2e 35 34 2f 61 2e  |55.138.142.54/a.|
+0140: 6a 70 67 22 20 74 61 72  67 65 74 3d 22 5f 62 6c  |jpg" target="_bl|
+0150: 61 6e 6b 22 3e 70 69 63  3c 2f 61 3e 0a 3c 61 20  |ank">pic</a>.<a |
+0160: 68 72 65 66 3d 22 68 74  74 70 3a 2f 2f 31 35 35  |href="http://155|
+0170: 2e 31 33 38 2e 31 34 32  2e 35 34 2f 62 2e 74 78  |.138.142.54/b.tx|
+0180: 74 22 20 74 61 72 67 65  74 3d 22 5f 62 6c 61 6e  |t" target="_blan|
+0190: 6b 22 3e 74 65 78 74 3c  2f 61 3e 0a 3c 61 20 68  |k">text</a>.<a h|
+01a0: 72 65 66 3d 22 68 74 74  70 3a 2f 2f 31 35 35 2e  |ref="http://155.|
+01b0: 31 33 38 2e 31 34 32 2e  35 34 2f 63 2e 6d 70 33  |138.142.54/c.mp3|
+01c0: 22 20 74 61 72 67 65 74  3d 22 5f 62 6c 61 6e 6b  |" target="_blank|
+01d0: 22 3e 6d 70 33 3c 2f 61  3e 0a                    |">mp3</a>.      |
+
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Received data packet, length: 474 bytes
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: A Seq: 3387559799 Ack: 1675058759 Len: 0 Total packet size: 54 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0xb4ac URG_ptr=0
+Successfully sent 54 bytes
+Captured packet: 60 bytes at time 1746769856.808907
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 60
+Entering parse function. data_length_: 60
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x66f5, Packet checksum: 0x66f5
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 40
+TCP packet: 80 -> 54893 Seq: 1675058759 Ack: 3387559799 Flags: AFP Window: 64240 Data Offset: 5 Data Length: 0
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Captured packet: 528 bytes at time 1746769856.919348
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 528
+Entering parse function. data_length_: 528
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x651a, Packet checksum: 0x651a
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 514
+TCP packet: 80 -> 54893 Seq: 1675058285 Ack: 3387559799 Flags: AFP Window: 64240 Data Offset: 5 Data Length: 474
+Payload (474 bytes):
+0000: 48 54 54 50 2f 31 2e 31  20 32 30 30 20 4f 4b 0d  |HTTP/1.1 200 OK.|
+0010: 0a 44 61 74 65 3a 20 46  72 69 2c 20 30 39 20 4d  |.Date: Fri, 09 M|
+0020: 61 79 20 32 30 32 35 20  30 35 3a 35 30 3a 35 36  |ay 2025 05:50:56|
+0030: 20 47 4d 54 0d 0a 53 65  72 76 65 72 3a 20 41 70  | GMT..Server: Ap|
+0040: 61 63 68 65 2f 32 2e 34  2e 36 20 28 43 65 6e 74  |ache/2.4.6 (Cent|
+0050: 4f 53 29 0d 0a 4c 61 73  74 2d 4d 6f 64 69 66 69  |OS)..Last-Modifi|
+0060: 65 64 3a 20 54 75 65 2c  20 31 34 20 4d 61 72 20  |ed: Tue, 14 Mar |
+0070: 32 30 32 33 20 30 36 3a  31 31 3a 33 35 20 47 4d  |2023 06:11:35 GM|
+0080: 54 0d 0a 45 54 61 67 3a  20 22 64 35 2d 35 66 36  |T..ETag: "d5-5f6|
+0090: 64 36 31 39 38 34 66 62  65 65 22 0d 0a 41 63 63  |d61984fbee"..Acc|
+00a0: 65 70 74 2d 52 61 6e 67  65 73 3a 20 62 79 74 65  |ept-Ranges: byte|
+00b0: 73 0d 0a 43 6f 6e 74 65  6e 74 2d 4c 65 6e 67 74  |s..Content-Lengt|
+00c0: 68 3a 20 32 31 33 0d 0a  43 6f 6e 6e 65 63 74 69  |h: 213..Connecti|
+00d0: 6f 6e 3a 20 63 6c 6f 73  65 0d 0a 43 6f 6e 74 65  |on: close..Conte|
+00e0: 6e 74 2d 54 79 70 65 3a  20 74 65 78 74 2f 68 74  |nt-Type: text/ht|
+00f0: 6d 6c 3b 20 63 68 61 72  73 65 74 3d 55 54 46 2d  |ml; charset=UTF-|
+0100: 38 0d 0a 0d 0a 54 68 69  73 20 69 73 20 74 68 65  |8....This is the|
+0110: 20 64 65 66 61 75 6c 74  20 70 61 67 65 21 0a 3c  | default page!.<|
+0120: 61 20 68 72 65 66 3d 22  68 74 74 70 3a 2f 2f 31  |a href="http://1|
+0130: 35 35 2e 31 33 38 2e 31  34 32 2e 35 34 2f 61 2e  |55.138.142.54/a.|
+0140: 6a 70 67 22 20 74 61 72  67 65 74 3d 22 5f 62 6c  |jpg" target="_bl|
+0150: 61 6e 6b 22 3e 70 69 63  3c 2f 61 3e 0a 3c 61 20  |ank">pic</a>.<a |
+0160: 68 72 65 66 3d 22 68 74  74 70 3a 2f 2f 31 35 35  |href="http://155|
+0170: 2e 31 33 38 2e 31 34 32  2e 35 34 2f 62 2e 74 78  |.138.142.54/b.tx|
+0180: 74 22 20 74 61 72 67 65  74 3d 22 5f 62 6c 61 6e  |t" target="_blan|
+0190: 6b 22 3e 74 65 78 74 3c  2f 61 3e 0a 3c 61 20 68  |k">text</a>.<a h|
+01a0: 72 65 66 3d 22 68 74 74  70 3a 2f 2f 31 35 35 2e  |ref="http://155.|
+01b0: 31 33 38 2e 31 34 32 2e  35 34 2f 63 2e 6d 70 33  |138.142.54/c.mp3|
+01c0: 22 20 74 61 72 67 65 74  3d 22 5f 62 6c 61 6e 6b  |" target="_blank|
+01d0: 22 3e 6d 70 33 3c 2f 61  3e 0a                    |">mp3</a>.      |
+
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Received data packet, length: 474 bytes
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: A Seq: 3387559799 Ack: 1675058759 Len: 0 Total packet size: 54 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0xb4ac URG_ptr=0
+Successfully sent 54 bytes
+Captured packet: 528 bytes at time 1746769857.27845
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 528
+Entering parse function. data_length_: 528
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x6519, Packet checksum: 0x6519
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 514
+TCP packet: 80 -> 54893 Seq: 1675058285 Ack: 3387559799 Flags: AFP Window: 64240 Data Offset: 5 Data Length: 474
+Payload (474 bytes):
+0000: 48 54 54 50 2f 31 2e 31  20 32 30 30 20 4f 4b 0d  |HTTP/1.1 200 OK.|
+0010: 0a 44 61 74 65 3a 20 46  72 69 2c 20 30 39 20 4d  |.Date: Fri, 09 M|
+0020: 61 79 20 32 30 32 35 20  30 35 3a 35 30 3a 35 36  |ay 2025 05:50:56|
+0030: 20 47 4d 54 0d 0a 53 65  72 76 65 72 3a 20 41 70  | GMT..Server: Ap|
+0040: 61 63 68 65 2f 32 2e 34  2e 36 20 28 43 65 6e 74  |ache/2.4.6 (Cent|
+0050: 4f 53 29 0d 0a 4c 61 73  74 2d 4d 6f 64 69 66 69  |OS)..Last-Modifi|
+0060: 65 64 3a 20 54 75 65 2c  20 31 34 20 4d 61 72 20  |ed: Tue, 14 Mar |
+0070: 32 30 32 33 20 30 36 3a  31 31 3a 33 35 20 47 4d  |2023 06:11:35 GM|
+0080: 54 0d 0a 45 54 61 67 3a  20 22 64 35 2d 35 66 36  |T..ETag: "d5-5f6|
+0090: 64 36 31 39 38 34 66 62  65 65 22 0d 0a 41 63 63  |d61984fbee"..Acc|
+00a0: 65 70 74 2d 52 61 6e 67  65 73 3a 20 62 79 74 65  |ept-Ranges: byte|
+00b0: 73 0d 0a 43 6f 6e 74 65  6e 74 2d 4c 65 6e 67 74  |s..Content-Lengt|
+00c0: 68 3a 20 32 31 33 0d 0a  43 6f 6e 6e 65 63 74 69  |h: 213..Connecti|
+00d0: 6f 6e 3a 20 63 6c 6f 73  65 0d 0a 43 6f 6e 74 65  |on: close..Conte|
+00e0: 6e 74 2d 54 79 70 65 3a  20 74 65 78 74 2f 68 74  |nt-Type: text/ht|
+00f0: 6d 6c 3b 20 63 68 61 72  73 65 74 3d 55 54 46 2d  |ml; charset=UTF-|
+0100: 38 0d 0a 0d 0a 54 68 69  73 20 69 73 20 74 68 65  |8....This is the|
+0110: 20 64 65 66 61 75 6c 74  20 70 61 67 65 21 0a 3c  | default page!.<|
+0120: 61 20 68 72 65 66 3d 22  68 74 74 70 3a 2f 2f 31  |a href="http://1|
+0130: 35 35 2e 31 33 38 2e 31  34 32 2e 35 34 2f 61 2e  |55.138.142.54/a.|
+0140: 6a 70 67 22 20 74 61 72  67 65 74 3d 22 5f 62 6c  |jpg" target="_bl|
+0150: 61 6e 6b 22 3e 70 69 63  3c 2f 61 3e 0a 3c 61 20  |ank">pic</a>.<a |
+0160: 68 72 65 66 3d 22 68 74  74 70 3a 2f 2f 31 35 35  |href="http://155|
+0170: 2e 31 33 38 2e 31 34 32  2e 35 34 2f 62 2e 74 78  |.138.142.54/b.tx|
+0180: 74 22 20 74 61 72 67 65  74 3d 22 5f 62 6c 61 6e  |t" target="_blan|
+0190: 6b 22 3e 74 65 78 74 3c  2f 61 3e 0a 3c 61 20 68  |k">text</a>.<a h|
+01a0: 72 65 66 3d 22 68 74 74  70 3a 2f 2f 31 35 35 2e  |ref="http://155.|
+01b0: 31 33 38 2e 31 34 32 2e  35 34 2f 63 2e 6d 70 33  |138.142.54/c.mp3|
+01c0: 22 20 74 61 72 67 65 74  3d 22 5f 62 6c 61 6e 6b  |" target="_blank|
+01d0: 22 3e 6d 70 33 3c 2f 61  3e 0a                    |">mp3</a>.      |
+
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Received data packet, length: 474 bytes
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: A Seq: 3387559799 Ack: 1675058759 Len: 0 Total packet size: 54 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0xb4ac URG_ptr=0
+Successfully sent 54 bytes
+Captured packet: 528 bytes at time 1746769857.137311
+Entering EthernetParser constructor. data pointer: 0x55d9997da5a0, length: 528
+Entering parse function. data_length_: 528
+Ethernet: 00:50:56:fc:d2:7f -> 00:0c:29:40:ed:0e
+Calculated checksum: 0x6518, Packet checksum: 0x6518
+IP packet: 155.138.142.54 -> 192.168.126.128 Protocol: 6 Length: 514
+TCP packet: 80 -> 54893 Seq: 1675058285 Ack: 3387559799 Flags: AFP Window: 64240 Data Offset: 5 Data Length: 474
+Payload (474 bytes):
+0000: 48 54 54 50 2f 31 2e 31  20 32 30 30 20 4f 4b 0d  |HTTP/1.1 200 OK.|
+0010: 0a 44 61 74 65 3a 20 46  72 69 2c 20 30 39 20 4d  |.Date: Fri, 09 M|
+0020: 61 79 20 32 30 32 35 20  30 35 3a 35 30 3a 35 36  |ay 2025 05:50:56|
+0030: 20 47 4d 54 0d 0a 53 65  72 76 65 72 3a 20 41 70  | GMT..Server: Ap|
+0040: 61 63 68 65 2f 32 2e 34  2e 36 20 28 43 65 6e 74  |ache/2.4.6 (Cent|
+0050: 4f 53 29 0d 0a 4c 61 73  74 2d 4d 6f 64 69 66 69  |OS)..Last-Modifi|
+0060: 65 64 3a 20 54 75 65 2c  20 31 34 20 4d 61 72 20  |ed: Tue, 14 Mar |
+0070: 32 30 32 33 20 30 36 3a  31 31 3a 33 35 20 47 4d  |2023 06:11:35 GM|
+0080: 54 0d 0a 45 54 61 67 3a  20 22 64 35 2d 35 66 36  |T..ETag: "d5-5f6|
+0090: 64 36 31 39 38 34 66 62  65 65 22 0d 0a 41 63 63  |d61984fbee"..Acc|
+00a0: 65 70 74 2d 52 61 6e 67  65 73 3a 20 62 79 74 65  |ept-Ranges: byte|
+00b0: 73 0d 0a 43 6f 6e 74 65  6e 74 2d 4c 65 6e 67 74  |s..Content-Lengt|
+00c0: 68 3a 20 32 31 33 0d 0a  43 6f 6e 6e 65 63 74 69  |h: 213..Connecti|
+00d0: 6f 6e 3a 20 63 6c 6f 73  65 0d 0a 43 6f 6e 74 65  |on: close..Conte|
+00e0: 6e 74 2d 54 79 70 65 3a  20 74 65 78 74 2f 68 74  |nt-Type: text/ht|
+00f0: 6d 6c 3b 20 63 68 61 72  73 65 74 3d 55 54 46 2d  |ml; charset=UTF-|
+0100: 38 0d 0a 0d 0a 54 68 69  73 20 69 73 20 74 68 65  |8....This is the|
+0110: 20 64 65 66 61 75 6c 74  20 70 61 67 65 21 0a 3c  | default page!.<|
+0120: 61 20 68 72 65 66 3d 22  68 74 74 70 3a 2f 2f 31  |a href="http://1|
+0130: 35 35 2e 31 33 38 2e 31  34 32 2e 35 34 2f 61 2e  |55.138.142.54/a.|
+0140: 6a 70 67 22 20 74 61 72  67 65 74 3d 22 5f 62 6c  |jpg" target="_bl|
+0150: 61 6e 6b 22 3e 70 69 63  3c 2f 61 3e 0a 3c 61 20  |ank">pic</a>.<a |
+0160: 68 72 65 66 3d 22 68 74  74 70 3a 2f 2f 31 35 35  |href="http://155|
+0170: 2e 31 33 38 2e 31 34 32  2e 35 34 2f 62 2e 74 78  |.138.142.54/b.tx|
+0180: 74 22 20 74 61 72 67 65  74 3d 22 5f 62 6c 61 6e  |t" target="_blan|
+0190: 6b 22 3e 74 65 78 74 3c  2f 61 3e 0a 3c 61 20 68  |k">text</a>.<a h|
+01a0: 72 65 66 3d 22 68 74 74  70 3a 2f 2f 31 35 35 2e  |ref="http://155.|
+01b0: 31 33 38 2e 31 34 32 2e  35 34 2f 63 2e 6d 70 33  |138.142.54/c.mp3|
+01c0: 22 20 74 61 72 67 65 74  3d 22 5f 62 6c 61 6e 6b  |" target="_blank|
+01d0: 22 3e 6d 70 33 3c 2f 61  3e 0a                    |">mp3</a>.      |
+
+Matching packet: 155.138.142.54:80 -> 192.168.126.128:54893 against connection: 155.138.142.54:80 -> 192.168.126.128:54893
+Packet matches normal direction
+Received data packet, length: 474 bytes
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: A Seq: 3387559799 Ack: 1675058759 Len: 0 Total packet size: 54 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0xb4ac URG_ptr=0
+Successfully sent 54 bytes
+result812
+Received HTTP response: 200 OK
+Response headers: 
+  accept-ranges: bytes
+  connection: close
+  content-length: 213
+  date: Fri, 09 May 2025 05:50:56 GMT
+  etag: "d5-5f6d61984fbee"
+  last-modified: Tue, 14 Mar 2023 06:11:35 GMT
+  server: Apache/2.4.6 (CentOS)
+Response body size: 213 bytes
+File downloaded successfully, saved as: index.html
+Sending FIN packet, closing connection
+Ethernet header: SRC=66:c6:69:73:51:ff DST=00:50:56:fc:d2:7f
+Sending TCP packet: 54893 -> 80 Flags: AF Seq: 3387559799 Ack: 1675058759 Len: 0 Total packet size: 54 bytes
+TCP Header: Data Offset=5 Window=8192 Checksum=0xb4ab URG_ptr=0
+Successfully sent 54 bytes
+File size: 213 bytes
+Packet capture thread terminated.
+
