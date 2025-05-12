@@ -11,7 +11,9 @@
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <algorithm>
-
+#include <fstream>
+#include <sstream>
+#include <cerrno>
 // 匿名命名空间中的辅助函数
 namespace {
     // 打印MAC地址
@@ -145,84 +147,121 @@ bool TcpStack::initialize(const std::string& interface_name) {
 }
 
 bool TcpStack::get_local_mac_and_ip(const std::string& interface_name) {
-    // 使用libpcap获取网络接口信息，而不使用socket
-    pcap_if_t* alldevs;
-    char errbuf[PCAP_ERRBUF_SIZE];
-    
-    // 获取所有可用的网络接口
-    if (pcap_findalldevs(&alldevs, errbuf) == -1) {
-        std::cerr << "Failed to get network interfaces: " << errbuf << std::endl;
+    // 获取MAC地址
+    struct ifreq ifr;
+    int fd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) {
+        std::cerr << "Cannot open socket for MAC address query: " << strerror(errno) << std::endl;
         return false;
     }
-    
+
+    // 清空结构体并设置接口名
+    memset(&ifr, 0, sizeof(ifr));
+    strncpy(ifr.ifr_name, interface_name.c_str(), IFNAMSIZ - 1);
+
+    // 获取MAC地址
+    if (ioctl(fd, SIOCGIFHWADDR, &ifr) < 0) {
+        std::cerr << "Cannot get MAC address for interface " << interface_name 
+                 << ": " << strerror(errno) << std::endl;
+        close(fd);
+        return false;
+    }
+    memcpy(local_mac_.bytes, ifr.ifr_hwaddr.sa_data, 6);
+    close(fd);
+
+    // 获取IP地址
+    struct ifaddrs *ifaddr, *ifa;
+    if (getifaddrs(&ifaddr) == -1) {
+        std::cerr << "Failed to get interface addresses: " << strerror(errno) << std::endl;
+        return false;
+    }
+
     bool found = false;
-    
-    // 遍历所有网络接口
-    for (pcap_if_t* dev = alldevs; dev != nullptr; dev = dev->next) {
-        if (dev->name && interface_name == dev->name) {
-            // 找到指定的网络接口
-            
-            // 尝试获取IP地址
-            for (pcap_addr_t* addr = dev->addresses; addr != nullptr; addr = addr->next) {
-                if (addr->addr && addr->addr->sa_family == AF_INET) {
-                    // 获取IPv4地址
-                    struct sockaddr_in* ipv4 = (struct sockaddr_in*)addr->addr;
-                    local_ip_ = ntohl(ipv4->sin_addr.s_addr);
-                    found = true;
-                    break;
-                }
-            }
-            
-            if (found) {
-                break;
-            }
+    for (ifa = ifaddr; ifa != nullptr; ifa = ifa->ifa_next) {
+        if (ifa->ifa_addr == nullptr) continue;
+        if (ifa->ifa_addr->sa_family == AF_INET && 
+            strcmp(ifa->ifa_name, interface_name.c_str()) == 0) {
+            struct sockaddr_in* addr = (struct sockaddr_in*)ifa->ifa_addr;
+            local_ip_ = ntohl(addr->sin_addr.s_addr);
+            found = true;
+            break;
         }
     }
-    
-    // 释放设备列表
-    pcap_freealldevs(alldevs);
-    
+    freeifaddrs(ifaddr);
+
     if (!found) {
-        std::cerr << "Could not find IP address for interface: " << interface_name << std::endl;
+        std::cerr << "Could not find IPv4 address for interface: " << interface_name << std::endl;
         return false;
     }
-    
-    // 为了获取MAC地址，我们需要打开设备并进行一些额外操作
-    // 由于没有很好的直接方法通过libpcap获取MAC地址，我们可以：
-    // 1. 生成一个随机MAC地址进行测试
-    // 或者
-    // 2. 使用ARP请求自己的IP地址获取MAC地址
-    
-    // 为简化，这里使用选项1：生成一个随机的MAC地址
-    uint8_t mac[6];
-    for (int i = 0; i < 6; i++) {
-        mac[i] = static_cast<uint8_t>(rand() % 256);
-    }
-    
-    // 确保这是一个合法的单播地址
-    mac[0] &= 0xFE; // 清除第一个字节的最低位，使其成为单播地址
-    
-    // 复制MAC地址
-    memcpy(local_mac_.bytes, mac, 6);
-    
-    //std::cout << "Using IP: " << ip_to_string(local_ip_)
-              //<< " and MAC: " << mac_to_string(local_mac_) << std::endl;
-    
+
+    std::cout << "Interface " << interface_name 
+              << " - IP: " << ip_to_string(local_ip_)
+              << ", MAC: " << mac_to_string(local_mac_) << std::endl;
     return true;
 }
 
+// 修改后的get_gateway_mac函数
 bool TcpStack::get_gateway_mac() {
-    // 这个功能在没有使用socket的情况下比较复杂
-    // 我们可以通过捕获ARP或读取/proc文件系统来获取网关MAC
-    // 为简化实现，我们直接使用指定的MAC地址
-    
-    // 使用虚拟机环境中的网关MAC地址
-    gateway_mac_.bytes[0] = 0x00; gateway_mac_.bytes[1] = 0x50; gateway_mac_.bytes[2] = 0x56; gateway_mac_.bytes[3] = 0xfc; gateway_mac_.bytes[4] = 0xd2; gateway_mac_.bytes[5] = 0x7f;
-    
-    //std::cout << "Using gateway MAC: " << mac_to_string(gateway_mac_) << std::endl;
-    
+    // 从/proc/net/route获取默认网关IP
+    std::ifstream route_file("/proc/net/route");
+    std::string line;
+    std::string gateway_ip;
+
+    while (std::getline(route_file, line)) {
+        std::istringstream iss(line);
+        std::string iface, dest, gateway, flags;
+        
+        // 提取各字段
+        iss >> iface >> dest >> gateway >> flags;
+
+        // 检查默认路由（目标为0.0.0.0，标志包含UG）
+        if (dest == "00000000" && flags.find("0003") != std::string::npos) {
+            // 转换网关IP（十六进制小端序转点分十进制）
+            uint32_t gw_ip_hex;
+            std::istringstream(gateway) >> std::hex >> gw_ip_hex;
+            struct in_addr addr;
+            addr.s_addr = gw_ip_hex;
+            gateway_ip = inet_ntoa(addr);
+            break;
+        }
+    }
+
+    if (gateway_ip.empty()) {
+        std::cerr << "No default gateway found" << std::endl;
+        return false;
+    }
+
+    // 从/proc/net/arp获取网关MAC
+    std::ifstream arp_file("/proc/net/arp");
+    std::getline(arp_file, line); // 跳过标题行
+
+    while (std::getline(arp_file, line)) {
+        std::istringstream iss(line);
+        std::string ip, hw_type, flags, mac, mask, device;
+
+        iss >> ip >> hw_type >> flags >> mac >> mask >> device;
+
+        if (ip == gateway_ip && mac != "00:00:00:00:00:00") {
+            // 解析MAC地址
+            if (sscanf(mac.c_str(), "%hhx:%hhx:%hhx:%hhx:%hhx:%hhx",
+                      &gateway_mac_.bytes[0], &gateway_mac_.bytes[1],
+                      &gateway_mac_.bytes[2], &gateway_mac_.bytes[3],
+                      &gateway_mac_.bytes[4], &gateway_mac_.bytes[5]) != 6) {
+                std::cerr << "Failed to parse gateway MAC: " << mac << std::endl;
+                return false;
+            }
+            std::cout << "Found gateway MAC: " << mac_to_string(gateway_mac_) 
+                     << " for IP: " << gateway_ip << std::endl;
+            return true;
+        }
+    }
+
+    std::cerr << "Gateway MAC not found in ARP cache, using broadcast address" << std::endl;
+    // 使用广播地址作为回退
+    memset(&gateway_mac_.bytes, 0xFF, sizeof(gateway_mac_.bytes));
     return true;
 }
+
 
 void TcpStack::capture_thread_func() {
     struct pcap_pkthdr* header;
